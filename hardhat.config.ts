@@ -36,6 +36,7 @@ if (!infuraApiKey) {
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
   const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
+  console.log(url);
   return {
     accounts: {
       count: 10,
@@ -46,7 +47,6 @@ function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
     url,
   };
 }
-
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   gasReporter: {
@@ -74,7 +74,7 @@ const config: HardhatUserConfig = {
     tests: "./test",
   },
   solidity: {
-    version: "0.8.9",
+    version: "0.8.4",
     settings: {
       metadata: {
         // Not including the metadata hash
